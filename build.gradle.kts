@@ -182,6 +182,8 @@ rootProject.extensions.configure<YarnRootExtension>("kotlinYarn") {
     resolution("**/serialize-javascript", "7.0.5")
     resolution("webpack", "5.106.2")
     resolution("**/webpack", "5.106.2")
+    resolution("ws", "8.20.1")
+    resolution("**/ws", "8.20.1")
     resolution("follow-redirects", "1.16.0")
     resolution("**/follow-redirects", "1.16.0")
     resolution("lodash", "4.18.1")
