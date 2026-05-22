@@ -1,4 +1,4 @@
-// port-lint: source tests:cmp_any/src/eq.rs
+// port-lint: source tests:eq.rs
 package io.github.kotlinmania.gazebo.cmpany
 
 /*
