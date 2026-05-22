@@ -1,4 +1,4 @@
-// port-lint: source tests:cmp_any/src/ord.rs
+// port-lint: source tests:ord.rs
 package io.github.kotlinmania.gazebo.cmpany
 
 /*
