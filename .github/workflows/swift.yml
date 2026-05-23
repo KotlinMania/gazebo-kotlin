@@ -9,7 +9,25 @@ permissions:
 jobs:
   build:
     name: Build and Test (Swift)
-    runs-on: macos-latest
+    # The Kotlin/Native 2.3.x distribution ships prebuilt platform caches
+    # (liborg.jetbrains.kotlin.native.platform.{CoreFoundation,Foundation,darwin}-cache.a)
+    # that reference macOS 26 / iOS 26 SDK symbols — NSCalendarIdentifierVikram,
+    # NSURLUbiquitousItemSupportedSyncControlsKey, mach_vm_reclaim_update_kernel_accounting_trap,
+    # xpc_session_set_peer_requirement, etc. macos-latest currently resolves to
+    # macos-15 (Xcode 16 SDK) and `swift test` link fails with "Undefined symbols
+    # for architecture arm64" on every one of those when the repo's Kotlin code
+    # reaches into Foundation / CoreFoundation / darwin platform APIs. Pin
+    # macos-26 uniformly so the SDK in
+    # /Applications/Xcode_26.x.app/Contents/Developer/Platforms provides the
+    # symbol stubs the cache expects.
+    #
+    # Do NOT add a `maxim-lobanov/setup-xcode@v1` step: KotlinMania's enterprise
+    # GitHub Actions policy does not whitelist third-party actions, and any
+    # workflow that references one returns `startup_failure` at dispatch time
+    # with zero jobs spawned. The pin step is redundant on macos-26: the image
+    # default already supplies Xcode 26.4.1 with the SDK the cache expects.
+    # See SWIFT_EXPORT_ROLLOUT.md gap #7.
+    runs-on: macos-26
     permissions:
       contents: read
     steps:
