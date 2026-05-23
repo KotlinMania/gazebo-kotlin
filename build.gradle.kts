@@ -209,7 +209,11 @@ kotlin {
         binaries.framework { baseName = "GazeboKotlin"; xcf.add(this) }
     }
     iosSimulatorArm64 {
-        binaries.framework { baseName = "GazeboKotlin"; xcf.add(this) }
+        binaries.framework {
+            baseName = "GazeboKotlin"
+            isStatic = true
+            xcf.add(this)
+        }
     }
     iosX64 {
         binaries.framework { baseName = "GazeboKotlin"; xcf.add(this) }
