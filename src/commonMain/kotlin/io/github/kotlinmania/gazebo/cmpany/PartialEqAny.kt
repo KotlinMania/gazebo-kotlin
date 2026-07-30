@@ -27,7 +27,6 @@ class PartialEqAny private constructor(
     private val value: Any,
     private val eq: (Any, Any) -> Boolean,
 ) {
-
     /** Get [KClass] of the referenced type. */
     fun typeId(): KClass<*> = typeId
 
@@ -38,9 +37,7 @@ class PartialEqAny private constructor(
         return typeId == other.typeId && eq(value, other.value)
     }
 
-    override fun hashCode(): Int {
-        return typeId.hashCode() * 31 + value.hashCode()
-    }
+    override fun hashCode(): Int = typeId.hashCode() * 31 + value.hashCode()
 
     companion object {
         fun <A : Any> new(a: A): PartialEqAny {
@@ -58,6 +55,7 @@ class PartialEqAny private constructor(
         fun alwaysFalse(): PartialEqAny {
             class AlwaysFalse {
                 override fun equals(other: Any?): Boolean = false
+
                 override fun hashCode(): Int = 0
             }
             return new(AlwaysFalse())
