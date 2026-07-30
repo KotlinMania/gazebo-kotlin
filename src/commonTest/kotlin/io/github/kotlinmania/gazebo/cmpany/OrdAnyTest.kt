@@ -17,7 +17,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class OrdAnyTest {
-
     @Test
     fun testOrdAny() {
         assertTrue(OrdAny.new(1) < OrdAny.new(2))
