@@ -41,6 +41,15 @@ class OrdAny
             return compareTo(other) == 0
         }
 
+        /** Compares for equality with another [OrdAny]. */
+        fun eq(other: OrdAny): Boolean = compareTo(other) == 0
+
+        /** Compare by type id first, then by value. */
+        fun cmp(other: OrdAny): Int = compareTo(other)
+
+        /** Partial comparison returning an [Int] ordering result. */
+        fun partialCmp(other: OrdAny): Int? = compareTo(other)
+
         override fun hashCode(): Int = typeName.hashCode() * 31 + value.hashCode()
 
         companion object {
