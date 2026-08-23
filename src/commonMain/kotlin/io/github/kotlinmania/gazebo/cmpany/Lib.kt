@@ -39,7 +39,7 @@ package io.github.kotlinmania.gazebo.cmpany
 //   already reaches OrdAny through the canonical package path.)
 
 /**
- * Module metadata for cmp_any crate port.
+ * Module metadata for CmpAny crate port.
  */
 public object CmpAny {
     public const val MODULE_NAME: String = "cmp_any"

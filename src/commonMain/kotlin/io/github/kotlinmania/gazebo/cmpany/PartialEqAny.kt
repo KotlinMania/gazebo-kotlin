@@ -37,6 +37,12 @@ class PartialEqAny private constructor(
         return typeId == other.typeId && eq(value, other.value)
     }
 
+    /** Compares for equality with another [PartialEqAny]. */
+    fun eq(other: PartialEqAny): Boolean = equals(other)
+
+    /** Returns this token. */
+    fun token(): PartialEqAny = this
+
     override fun hashCode(): Int = typeId.hashCode() * 31 + value.hashCode()
 
     companion object {
