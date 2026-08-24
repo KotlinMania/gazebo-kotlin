@@ -1,4 +1,4 @@
-// port-lint: source tests:eq.rs
+// port-lint: tests eq.rs
 package io.github.kotlinmania.gazebo.cmpany
 
 /*
@@ -17,8 +17,9 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class PartialEqAnyTest {
-
-    private class Wrap<T : Any>(val inner: T) {
+    private class Wrap<T : Any>(
+        val inner: T,
+    ) {
         fun token(): PartialEqAny = PartialEqAny.new(inner)
     }
 

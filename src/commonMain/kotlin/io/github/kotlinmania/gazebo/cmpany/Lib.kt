@@ -37,3 +37,10 @@ package io.github.kotlinmania.gazebo.cmpany
 //   [io.github.kotlinmania.gazebo.cmpany.PartialEqAny] directly at the time this tracking
 //   file landed. The single external Kotlin caller, starlark-kotlin's typing/Custom.kt,
 //   already reaches OrdAny through the canonical package path.)
+
+/**
+ * Module metadata for CmpAny crate port.
+ */
+public object CmpAny {
+    public const val MODULE_NAME: String = "cmp_any"
+}

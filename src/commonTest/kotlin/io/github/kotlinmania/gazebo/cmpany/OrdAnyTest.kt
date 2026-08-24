@@ -1,4 +1,4 @@
-// port-lint: source tests:ord.rs
+// port-lint: tests ord.rs
 package io.github.kotlinmania.gazebo.cmpany
 
 /*
@@ -17,7 +17,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class OrdAnyTest {
-
     @Test
     fun testOrdAny() {
         assertTrue(OrdAny.new(1) < OrdAny.new(2))
