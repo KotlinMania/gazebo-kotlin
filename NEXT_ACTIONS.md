@@ -5,13 +5,13 @@ Based on AST analysis, here are the concrete next steps.
 ## Summary
 
 - **Files Present:** 3/3 (100.0%)
-- **Function parity:** 12/13 matched (target 21) — 92.3%
-- **Class/type parity:** 4/4 matched (target 7) — 100.0%
-- **Combined symbol parity:** 16/17 matched (target 28) — 94.1%
-- **Average inline-code cosine:** 0.78 (function body across 3 matched files)
+- **Function parity:** 12/13 matched (target 23) — 92.3%
+- **Class/type parity:** 4/4 matched (target 8) — 100.0%
+- **Combined symbol parity:** 16/17 matched (target 31) — 94.1%
+- **Average inline-code cosine:** 0.45 (function body across 3 matched files)
 - **Average documentation cosine:** 0.49 (doc text across 3 matched files)
-- **Cheat-zeroed Files:** 0
-- **Critical Issues:** 0 files with <0.60 function similarity
+- **Cheat-zeroed Files:** 1
+- **Critical Issues:** 1 files with <0.60 function similarity
 
 ## Priority 1: Fix Incomplete High-Dependency Files
 
@@ -27,9 +27,9 @@ No missing high-value files detected.
 
 Every matched file is listed below with function and type symbol parity.
 
-### 1. cmp_any.eq
+### 1. eq
 
-- **Target:** `cmpany.PartialEqAny [PROVENANCE-FALLBACK]`
+- **Target:** `cmpany.PartialEqAny`
 - **Similarity:** 0.63
 - **Dependents:** 0
 - **Priority Score:** 11003.7
@@ -38,15 +38,10 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 3/3 matched (target 4)
 - **Missing types:** _none_
 - **Tests:** 2/3 matched
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `eq.rs` vs expected `eq.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:eq.rs` vs expected `eq.rs`
-- **Proposed provenance header:** `// port-lint: source eq.rs` (current: `// port-lint: source eq.rs`)
-- **Proposed provenance header:** `// port-lint: tests eq.rs` (current: `// port-lint: tests eq.rs`)
-- **Lint issues:** 2
 
-### 2. cmp_any.ord
+### 2. ord
 
-- **Target:** `cmpany.OrdAny [PROVENANCE-FALLBACK]`
+- **Target:** `cmpany.OrdAny`
 - **Similarity:** 0.71
 - **Dependents:** 0
 - **Priority Score:** 702.9
@@ -55,25 +50,17 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/1 matched (target 2)
 - **Missing types:** _none_
 - **Tests:** 1/1 matched
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `ord.rs` vs expected `ord.rs`
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:ord.rs` vs expected `ord.rs`
-- **Proposed provenance header:** `// port-lint: source ord.rs` (current: `// port-lint: source ord.rs`)
-- **Proposed provenance header:** `// port-lint: tests ord.rs` (current: `// port-lint: tests ord.rs`)
-- **Lint issues:** 2
 
-### 3. cmp_any.lib
+### 3. lib
 
-- **Target:** `cmpany.Lib [PROVENANCE-FALLBACK]`
-- **Similarity:** 1.00
+- **Target:** `cmpany.Lib [ZERO]`
+- **Similarity:** 0.00
 - **Dependents:** 0
-- **Priority Score:** 0.0
-- **Functions:** 0/0 matched
+- **Priority Score:** 10.0
+- **Functions:** 0/0 matched (target 2)
 - **Missing functions:** _none_
-- **Types:** 0/0 matched (target 1)
+- **Types:** 0/0 matched (target 2)
 - **Missing types:** _none_
-- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `lib.rs` vs expected `lib.rs`
-- **Proposed provenance header:** `// port-lint: source lib.rs` (current: `// port-lint: source lib.rs`)
-- **Lint issues:** 1
 
 ## Success Criteria
 
