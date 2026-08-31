@@ -1,4 +1,4 @@
-// port-lint: tests gazebo/cmp_any/src/eq.rs
+// port-lint: tests eq.rs
 package io.github.kotlinmania.gazebo.cmpany
 
 /*
@@ -16,12 +16,13 @@ import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
+class Wrap<T : Any>(
+    val inner: T,
+) {
+    fun token(): PartialEqAny = PartialEqAny.new(inner)
+}
+
 class PartialEqAnyTest {
-    private class Wrap<T : Any>(
-        val inner: T,
-    ) {
-        fun token(): PartialEqAny = PartialEqAny.new(inner)
-    }
 
     @Test
     fun testCmpAny() {
