@@ -8,8 +8,8 @@ Based on AST analysis, here are the concrete next steps.
 - **Function parity:** 12/13 matched (target 21) — 92.3%
 - **Class/type parity:** 4/4 matched (target 6) — 100.0%
 - **Combined symbol parity:** 16/17 matched (target 27) — 94.1%
-- **Average inline-code cosine:** 0.45 (function body across 3 matched files)
-- **Average documentation cosine:** 0.49 (doc text across 3 matched files)
+- **Average inline-code cosine:** 0.67 (function body across 2 matched files)
+- **Average documentation cosine:** 0.73 (doc text across 2 matched files)
 - **Cheat-zeroed Files:** 0
 - **Critical Issues:** 1 files with <0.60 function similarity
 
@@ -27,7 +27,7 @@ No missing high-value files detected.
 
 Every matched file is listed below with function and type symbol parity.
 
-### 1. eq
+### 1. cmp_any.eq
 
 - **Target:** `cmpany.PartialEqAny`
 - **Similarity:** 0.63
@@ -39,7 +39,7 @@ Every matched file is listed below with function and type symbol parity.
 - **Missing types:** _none_
 - **Tests:** 2/3 matched
 
-### 2. ord
+### 2. cmp_any.ord
 
 - **Target:** `cmpany.OrdAny`
 - **Similarity:** 0.71
@@ -71,5 +71,5 @@ do not treat them as the next implementation target by default.
 
 | Source | Target | Path |
 |--------|--------|------|
-| `lib` | `cmpany.Lib` | `lib` |
+| `cmp_any.lib` | `cmpany.Lib` | `gazebo/cmp_any/src/lib` |
 
