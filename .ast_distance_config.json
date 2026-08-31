@@ -2,7 +2,7 @@
   "type": "port",
   "name": "gazebo-kotlin",
   "source": {
-    "path": "tmp/gazebo/cmp_any/src",
+    "path": "tmp",
     "lang": "rust"
   },
   "target": {
