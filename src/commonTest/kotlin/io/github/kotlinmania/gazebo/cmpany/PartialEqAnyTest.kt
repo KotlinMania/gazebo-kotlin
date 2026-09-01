@@ -16,14 +16,7 @@ import kotlin.test.Test
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class Wrap<T : Any>(
-    val inner: T,
-) {
-    fun token(): PartialEqAny = PartialEqAny.new(inner)
-}
-
 class PartialEqAnyTest {
-
     @Test
     fun testCmpAny() {
         val w1 = Wrap(1)
@@ -50,5 +43,11 @@ class PartialEqAnyTest {
 
         assertFalse(f == f)
         assertFalse(f == w.token())
+    }
+
+    @Test
+    fun token() {
+        val w = Wrap(42)
+        assertTrue(w.token() == w.token())
     }
 }
