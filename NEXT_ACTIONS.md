@@ -27,9 +27,9 @@ No missing high-value files detected.
 
 Every matched file is listed below with function and type symbol parity.
 
-### 1. eq
+### 1. cmp_any.eq
 
-- **Target:** `cmpany.PartialEqAny`
+- **Target:** `cmpany.PartialEqAny [PROVENANCE-FALLBACK]`
 - **Similarity:** 0.63
 - **Dependents:** 0
 - **Priority Score:** 11003.7
@@ -38,10 +38,15 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 3/3 matched (target 4)
 - **Missing types:** _none_
 - **Tests:** 2/3 matched
+- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `eq.rs` vs expected `eq.rs`
+- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:eq.rs` vs expected `eq.rs`
+- **Proposed provenance header:** `// port-lint: source eq.rs` (current: `// port-lint: source eq.rs`)
+- **Proposed provenance header:** `// port-lint: tests eq.rs` (current: `// port-lint: tests eq.rs`)
+- **Lint issues:** 2
 
-### 2. ord
+### 2. cmp_any.ord
 
-- **Target:** `cmpany.OrdAny`
+- **Target:** `cmpany.OrdAny [PROVENANCE-FALLBACK]`
 - **Similarity:** 0.71
 - **Dependents:** 0
 - **Priority Score:** 702.9
@@ -50,6 +55,11 @@ Every matched file is listed below with function and type symbol parity.
 - **Types:** 1/1 matched (target 2)
 - **Missing types:** _none_
 - **Tests:** 1/1 matched
+- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `ord.rs` vs expected `ord.rs`
+- **Provenance warning:** port-lint provenance header matched only after fallback normalization: `tests:ord.rs` vs expected `ord.rs`
+- **Proposed provenance header:** `// port-lint: source ord.rs` (current: `// port-lint: source ord.rs`)
+- **Proposed provenance header:** `// port-lint: tests ord.rs` (current: `// port-lint: tests ord.rs`)
+- **Lint issues:** 2
 
 ## Success Criteria
 
@@ -71,5 +81,5 @@ do not treat them as the next implementation target by default.
 
 | Source | Target | Path |
 |--------|--------|------|
-| `lib` | `cmpany.Lib` | `lib` |
+| `cmp_any.lib` | `cmpany.Lib` | `cmp_any/src/lib` |
 
