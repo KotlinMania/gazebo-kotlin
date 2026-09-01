@@ -68,3 +68,13 @@ class PartialEqAny private constructor(
         }
     }
 }
+
+/**
+ * Wrapper for [PartialEqAny] token creation.
+ */
+class Wrap<T : Any>(
+    val inner: T,
+) {
+    /** Returns a [PartialEqAny] token for the wrapped value. */
+    fun token(): PartialEqAny = PartialEqAny.new(inner)
+}

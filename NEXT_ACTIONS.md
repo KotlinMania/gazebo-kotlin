@@ -5,11 +5,11 @@ Based on AST analysis, here are the concrete next steps.
 ## Summary
 
 - **Files Present:** 3/3 (100.0%)
-- **Function parity:** 12/13 matched (target 21) — 92.3%
+- **Function parity:** 13/13 matched (target 22) — 100.0%
 - **Class/type parity:** 4/4 matched (target 6) — 100.0%
-- **Combined symbol parity:** 16/17 matched (target 27) — 94.1%
+- **Combined symbol parity:** 17/17 matched (target 28) — 100.0%
 - **Average inline-code cosine:** 0.45 (function body across 3 matched files)
-- **Average documentation cosine:** 0.49 (doc text across 3 matched files)
+- **Average documentation cosine:** 0.46 (doc text across 3 matched files)
 - **Cheat-zeroed Files:** 0
 - **Critical Issues:** 1 files with <0.60 function similarity
 
@@ -32,12 +32,12 @@ Every matched file is listed below with function and type symbol parity.
 - **Target:** `cmpany.PartialEqAny`
 - **Similarity:** 0.63
 - **Dependents:** 0
-- **Priority Score:** 11003.7
-- **Functions:** 6/7 matched (target 12)
-- **Missing functions:** `token`
+- **Priority Score:** 1003.7
+- **Functions:** 7/7 matched (target 13)
+- **Missing functions:** _none_
 - **Types:** 3/3 matched (target 4)
 - **Missing types:** _none_
-- **Tests:** 2/3 matched
+- **Tests:** 3/3 matched
 
 ### 2. ord
 
