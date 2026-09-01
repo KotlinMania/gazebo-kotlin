@@ -1,4 +1,4 @@
-// port-lint: source gazebo/cmp_any/src/lib.rs
+// port-lint: source lib.rs
 package io.github.kotlinmania.gazebo.cmpany
 
 /*
