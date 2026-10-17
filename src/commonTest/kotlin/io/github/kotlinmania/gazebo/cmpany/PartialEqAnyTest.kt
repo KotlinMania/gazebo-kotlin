@@ -13,6 +13,7 @@ package io.github.kotlinmania.gazebo.cmpany
  */
 
 import kotlin.test.Test
+import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
@@ -49,5 +50,14 @@ class PartialEqAnyTest {
     fun token() {
         val w = Wrap(42)
         assertTrue(w.token() == w.token())
+    }
+
+    @Test
+    fun testPartialEqAnyMethods() {
+        val a = PartialEqAny.new("test")
+        val b = PartialEqAny.new("test")
+        assertTrue(a.eq(b))
+        assertEquals(a.token(), a)
+        assertEquals(a.hashCode(), b.hashCode())
     }
 }
