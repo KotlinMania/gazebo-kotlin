@@ -33,7 +33,12 @@ interface IterExt<T> {
 class Owned<T>(val inner: Iterator<T>) : Iterator<T> {
     override fun hasNext(): Boolean = inner.hasNext()
 
-    override fun next(): T = inner.next()
+    override fun next(): T {
+        if (!hasNext()) {
+            throw NoSuchElementException()
+        }
+        return inner.next()
+    }
 }
 
 interface IterOwned<T> {
