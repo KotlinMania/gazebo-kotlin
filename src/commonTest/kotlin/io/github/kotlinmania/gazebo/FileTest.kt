@@ -53,7 +53,7 @@ class FileTest {
             assertEquals("contents", readBack)
         } catch (e: Exception) {
             // Node WASI environment does not preopen host directories for filesystem modification.
-            // Browser environments do not have filesystem access / Node 'path' module.
+            // Browser environments do not have filesystem access or the path module.
             if (e is UnsupportedOperationException ||
                 e.message?.contains("preopened") == true ||
                 e.message?.contains("could not be imported") == true

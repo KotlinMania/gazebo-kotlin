@@ -22,8 +22,11 @@
     "prelude.rs",
     "ext",
     "ext.rs",
+    "test",
+    "test.rs",
     "gazebo/src/lib.rs",
     "gazebo/src/prelude.rs",
-    "gazebo/src/ext.rs"
+    "gazebo/src/ext.rs",
+    "gazebo/src/test.rs"
   ]
 }

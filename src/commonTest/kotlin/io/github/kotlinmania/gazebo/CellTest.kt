@@ -69,7 +69,7 @@ class CellTest {
 
     @Test
     fun testRefAsExpected() {
-        // Rust test test_ref_as_expected verifies mem::transmute internal raw pointer layout
+        // Representation test verifies internal reference behavior.
         val orig = RefCell("test")
         val p = orig.borrow()
         val r = ARef.newRef(p)

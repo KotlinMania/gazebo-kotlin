@@ -15,8 +15,7 @@ package io.github.kotlinmania.gazebo
 import io.github.kotlinmania.gazebo.dupe.Dupe
 
 /**
- * A type like PhantomData, but where the contained [T] is invariant
- * in both lifetimes and types.
+ * A type like PhantomData, but where the contained [T] is invariant in types.
  */
 class PhantomDataInvariant<T> : Dupe, Comparable<PhantomDataInvariant<T>> {
 
