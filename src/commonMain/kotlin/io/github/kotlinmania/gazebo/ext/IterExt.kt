@@ -45,9 +45,6 @@ interface IterOwned<T> {
     fun owned(): Owned<T>
 }
 
-private fun <T> check(f: (T) -> Result<Boolean>): (Unit, T) -> Result<Boolean> =
-    { _, x -> f(x) }
-
 fun <T> Iterator<T>.tryAny(any: (T) -> Result<Boolean>): Result<Boolean> {
     while (hasNext()) {
         val res = any(next())
