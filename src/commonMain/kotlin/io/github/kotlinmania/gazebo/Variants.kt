@@ -27,7 +27,9 @@ interface VariantName {
 /**
  * [VariantName] implementation for nullable values (the equivalent of Option).
  */
-class OptionVariant<T>(val value: T?) : VariantName {
+class OptionVariant<T>(
+    val value: T?,
+) : VariantName {
     override fun variantName(): String =
         if (value != null) "Some" else "None"
 
@@ -38,7 +40,9 @@ class OptionVariant<T>(val value: T?) : VariantName {
 /**
  * [VariantName] implementation for [Result] values.
  */
-class ResultVariant<T>(val result: Result<T>) : VariantName {
+class ResultVariant<T>(
+    val result: Result<T>,
+) : VariantName {
     override fun variantName(): String =
         if (result.isSuccess) "Ok" else "Err"
 
@@ -65,11 +69,16 @@ fun <T> Result<T>.variantNameLowercase(): String =
 /**
  * Example enum implementing [VariantName].
  */
-enum class MyEnum(private val customName: String, private val customLower: String) : VariantName {
+enum class MyEnum(
+    private val customName: String,
+    private val customLower: String,
+) : VariantName {
     Foo("Foo", "foo"),
     Bar("Bar", "bar"),
-    FooBaz("FooBaz", "foo_baz");
+    FooBaz("FooBaz", "foo_baz"),
+    ;
 
     override fun variantName(): String = customName
+
     override fun variantNameLowercase(): String = customLower
 }

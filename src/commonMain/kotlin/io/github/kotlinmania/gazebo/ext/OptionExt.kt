@@ -25,7 +25,9 @@ interface OptionExt<T> {
 /**
  * Wrapper for nullable values representing Option to provide [OptionExt].
  */
-class OptionValue<T>(val value: T?) : OptionExt<T> {
+class OptionValue<T>(
+    val value: T?,
+) : OptionExt<T> {
     override fun <U> tryMap(f: (T) -> Result<U>): Result<U?> =
         if (value == null) Result.success(null) else f(value)
 }

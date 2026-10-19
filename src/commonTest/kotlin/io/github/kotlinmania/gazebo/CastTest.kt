@@ -16,7 +16,10 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class CastTest {
-    class Foo<T>(var count: Int, val value: T) {
+    class Foo<T>(
+        var count: Int,
+        val value: T,
+    ) {
         fun drop() {
             count -= 1
         }

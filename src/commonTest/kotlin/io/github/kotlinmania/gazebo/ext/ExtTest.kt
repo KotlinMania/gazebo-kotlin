@@ -33,8 +33,11 @@ class ExtTest {
     }
 
     private fun trueIfEvenThrowOnZero(x: Int): Result<Boolean> =
-        if (x == 0) Result.failure(IllegalArgumentException("zero"))
-        else Result.success(x % 2 == 0)
+        if (x == 0) {
+            Result.failure(IllegalArgumentException("zero"))
+        } else {
+            Result.success(x % 2 == 0)
+        }
 
     @Test
     fun testIterTryAnyAndTryAll() {
@@ -60,15 +63,21 @@ class ExtTest {
     @Test
     fun testIterTryEqAndCmp() {
         fun doubleEqThrowOnZero(x: Int, y: Int): Result<Boolean> =
-            if (x == 0 || y == 0) Result.failure(IllegalArgumentException("zero"))
-            else Result.success(x * 2 == y)
+            if (x == 0 || y == 0) {
+                Result.failure(IllegalArgumentException("zero"))
+            } else {
+                Result.success(x * 2 == y)
+            }
 
         assertEquals(true, listOf(1, 4, 2).tryEqBy(listOf(2, 8, 4), ::doubleEqThrowOnZero).getOrNull())
         assertTrue(listOf(1, 4, 2).tryEqBy(listOf(2, 0, 4), ::doubleEqThrowOnZero).isFailure)
 
         fun doubleCmpThrowOnZero(x: Int, y: Int): Result<Int> =
-            if (x == 0 || y == 0) Result.failure(IllegalArgumentException("zero"))
-            else Result.success((x * 2).compareTo(y))
+            if (x == 0 || y == 0) {
+                Result.failure(IllegalArgumentException("zero"))
+            } else {
+                Result.success((x * 2).compareTo(y))
+            }
 
         assertEquals(0, listOf(1, 4, 2).tryCmpBy(listOf(2, 8, 4), ::doubleCmpThrowOnZero).getOrNull())
         assertEquals(-1, listOf(1, 2, 2).tryCmpBy(listOf(2, 8, 4), ::doubleCmpThrowOnZero).getOrNull())
@@ -87,7 +96,9 @@ class ExtTest {
         assertNull(listOf(1, 2).intoSingleton())
     }
 
-    data class MyDupe(val v: Int) : Dupe
+    data class MyDupe(
+        val v: Int,
+    ) : Dupe
 
     @Test
     fun testVecExt() {

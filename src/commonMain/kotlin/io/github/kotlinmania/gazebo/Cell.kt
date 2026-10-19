@@ -13,17 +13,22 @@ package io.github.kotlinmania.gazebo
  */
 
 sealed class ARefImpl<T> {
-    data class Ptr<T>(val ptr: T) : ARefImpl<T>()
+    data class Ptr<T>(
+        val ptr: T,
+    ) : ARefImpl<T>()
 
-    data class Ref<T>(val ref: T) : ARefImpl<T>()
+    data class Ref<T>(
+        val ref: T,
+    ) : ARefImpl<T>()
 }
 
 /**
  * A reference that might not actually be borrowed.
  * Either a direct reference, or a cell reference, exposing access methods.
  */
-class ARef<T> internal constructor(val inner: ARefImpl<T>) : Comparable<ARef<T>> {
-
+class ARef<T> internal constructor(
+    val inner: ARefImpl<T>,
+) : Comparable<ARef<T>> {
     fun deref(): T =
         when (inner) {
             is ARefImpl.Ptr -> inner.ptr
@@ -48,6 +53,7 @@ class ARef<T> internal constructor(val inner: ARefImpl<T>) : Comparable<ARef<T>>
                 val (u, v) = f(inner.ptr)
                 Pair(ARef(ARefImpl.Ptr(u)), ARef(ARefImpl.Ptr(v)))
             }
+
             is ARefImpl.Ref -> {
                 val (u, v) = f(inner.ref)
                 Pair(ARef(ARefImpl.Ref(u)), ARef(ARefImpl.Ref(v)))
@@ -60,6 +66,7 @@ class ARef<T> internal constructor(val inner: ARefImpl<T>) : Comparable<ARef<T>>
                 val u = f(inner.ptr)
                 if (u != null) Result.success(ARef(ARefImpl.Ptr(u))) else Result.failure(NoSuchElementException("Value filtered out"))
             }
+
             is ARefImpl.Ref -> {
                 val u = f(inner.ref)
                 if (u != null) Result.success(ARef(ARefImpl.Ref(u))) else Result.failure(NoSuchElementException("Value filtered out"))
@@ -125,18 +132,24 @@ interface AsARef<T> {
 /**
  * Simple container cell representing a mutable reference with borrowing semantics.
  */
-class RefCell<T>(var value: T) : AsARef<T> {
+class RefCell<T>(
+    var value: T,
+) : AsARef<T> {
     private var isBorrowedMutably: Boolean = false
 
     fun borrow(): T = value
 
     fun tryBorrow(): Result<T> =
-        if (isBorrowedMutably) Result.failure(IllegalStateException("Already mutably borrowed"))
-        else Result.success(value)
+        if (isBorrowedMutably) {
+            Result.failure(IllegalStateException("Already mutably borrowed"))
+        } else {
+            Result.success(value)
+        }
 
     fun tryBorrowMut(): Result<T> =
-        if (isBorrowedMutably) Result.failure(IllegalStateException("Already borrowed"))
-        else {
+        if (isBorrowedMutably) {
+            Result.failure(IllegalStateException("Already borrowed"))
+        } else {
             isBorrowedMutably = true
             Result.success(value)
         }
@@ -153,7 +166,9 @@ class RefCell<T>(var value: T) : AsARef<T> {
     override fun asRefCell(): T = value
 }
 
-class DirectAsARef<T>(val value: T) : AsARef<T> {
+class DirectAsARef<T>(
+    val value: T,
+) : AsARef<T> {
     override fun asAref(): ARef<T> = ARef.newPtr(value)
 
     override fun tryAsAref(): Result<ARef<T>> = Result.success(ARef.newPtr(value))

@@ -21,7 +21,6 @@ data class Hashed<T>(
     val hash: ULong,
     val value: T,
 ) : Dupe {
-
     fun hash(): ULong = hash
 
     fun fmt(): String = value.toString()

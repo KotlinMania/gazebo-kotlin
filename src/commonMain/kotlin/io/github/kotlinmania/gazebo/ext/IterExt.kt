@@ -30,7 +30,9 @@ interface IterExt<T> {
 /**
  * An iterator that yields the owned items of the inner iterator.
  */
-class Owned<T>(val inner: Iterator<T>) : Iterator<T> {
+class Owned<T>(
+    val inner: Iterator<T>,
+) : Iterator<T> {
     override fun hasNext(): Boolean = inner.hasNext()
 
     override fun next(): T {

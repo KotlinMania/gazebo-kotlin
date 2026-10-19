@@ -29,7 +29,9 @@ interface TEq<T> {
 /**
  * Default wrapper providing [TEq] witness for any value of type [T].
  */
-open class TEqValue<T>(val value: T) : TEq<T> {
+open class TEqValue<T>(
+    val value: T,
+) : TEq<T> {
     override fun teq(): T = value
 
     override fun teqRef(): T = value

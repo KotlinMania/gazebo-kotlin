@@ -19,16 +19,23 @@ class VariantsTest {
     sealed class MyEnum : VariantName {
         data object Foo : MyEnum() {
             override fun variantName(): String = "Foo"
+
             override fun variantNameLowercase(): String = "foo"
         }
 
-        data class Bar(val value: ULong) : MyEnum() {
+        data class Bar(
+            val value: ULong,
+        ) : MyEnum() {
             override fun variantName(): String = "Bar"
+
             override fun variantNameLowercase(): String = "bar"
         }
 
-        data class FooBaz(val field: ULong) : MyEnum() {
+        data class FooBaz(
+            val field: ULong,
+        ) : MyEnum() {
             override fun variantName(): String = "FooBaz"
+
             override fun variantNameLowercase(): String = "foo_baz"
         }
     }

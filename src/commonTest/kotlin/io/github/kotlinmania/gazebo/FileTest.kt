@@ -21,7 +21,9 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class FileTest {
-    class RemoveDir(val path: Path) {
+    class RemoveDir(
+        val path: Path,
+    ) {
         fun drop() {
             try {
                 if (SystemFileSystem.exists(path)) {

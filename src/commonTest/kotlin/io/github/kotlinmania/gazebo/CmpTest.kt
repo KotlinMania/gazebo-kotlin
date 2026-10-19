@@ -52,43 +52,48 @@ class CmpTest {
 
     @Test
     fun cmpEqChain() {
-        val fakeLess = FakeComparable(
-            { -1 },
-            { error("should return less") },
-            { error("should return less") },
-        )
+        val fakeLess =
+            FakeComparable(
+                { -1 },
+                { error("should return less") },
+                { error("should return less") },
+            )
         assertEquals(-1, fakeLess.cmp(fakeLess))
         assertFalse(fakeLess.eq(fakeLess))
 
-        val fakeGreater = FakeComparable(
-            { 1 },
-            { error("should return less") },
-            { error("should return less") },
-        )
+        val fakeGreater =
+            FakeComparable(
+                { 1 },
+                { error("should return less") },
+                { error("should return less") },
+            )
         assertEquals(1, fakeGreater.cmp(fakeGreater))
         assertFalse(fakeGreater.eq(fakeGreater))
 
-        val fakeEqualThenLess = FakeComparable(
-            { 0 },
-            { -1 },
-            { error("should return less") },
-        )
+        val fakeEqualThenLess =
+            FakeComparable(
+                { 0 },
+                { -1 },
+                { error("should return less") },
+            )
         assertEquals(-1, fakeEqualThenLess.cmp(fakeEqualThenLess))
         assertFalse(fakeEqualThenLess.eq(fakeEqualThenLess))
 
-        val fakeEqualThenGreater = FakeComparable(
-            { 0 },
-            { 0 },
-            { 1 },
-        )
+        val fakeEqualThenGreater =
+            FakeComparable(
+                { 0 },
+                { 0 },
+                { 1 },
+            )
         assertEquals(1, fakeEqualThenGreater.cmp(fakeEqualThenGreater))
         assertFalse(fakeEqualThenGreater.eq(fakeEqualThenGreater))
 
-        val fakeAllEqual = FakeComparable(
-            { 0 },
-            { 0 },
-            { 0 },
-        )
+        val fakeAllEqual =
+            FakeComparable(
+                { 0 },
+                { 0 },
+                { 0 },
+            )
         assertEquals(0, fakeAllEqual.cmp(fakeAllEqual))
         assertTrue(fakeAllEqual.eq(fakeAllEqual))
     }

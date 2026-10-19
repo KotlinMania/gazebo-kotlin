@@ -17,8 +17,9 @@ import io.github.kotlinmania.gazebo.dupe.Dupe
 /**
  * A type like PhantomData, but where the contained [T] is invariant in types.
  */
-class PhantomDataInvariant<T> : Dupe, Comparable<PhantomDataInvariant<T>> {
-
+class PhantomDataInvariant<T> :
+    Dupe,
+    Comparable<PhantomDataInvariant<T>> {
     fun fmt(): String = "PhantomDataInvariant"
 
     fun clone(): PhantomDataInvariant<T> = this
