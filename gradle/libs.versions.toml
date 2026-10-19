@@ -8,6 +8,7 @@ procMacro2 = "0.1.6"
 quote = "0.2.5"
 serde = "0.1.11"
 syn = "0.3.11"
+kmIo = "0.2.0"
 androidKmp = "9.4.1"
 detekt = "2.0.0-alpha.6"
 ktlint = "14.2.0"
@@ -31,6 +32,7 @@ proc-macro2-kotlin = { module = "io.github.kotlinmania:proc-macro2-kotlin", vers
 quote-kotlin = { module = "io.github.kotlinmania:quote-kotlin", version.ref = "quote" }
 serde-kotlin = { module = "io.github.kotlinmania:serde-kotlin", version.ref = "serde" }
 syn-kotlin = { module = "io.github.kotlinmania:syn-kotlin", version.ref = "syn" }
+km-io = { module = "io.github.kotlinmania:km-io", version.ref = "kmIo" }
 kotlinx-benchmark-runtime = { module = "org.jetbrains.kotlinx:kotlinx-benchmark-runtime", version.ref = "kotlinxBenchmark" }
 
 [bundles]
@@ -43,4 +45,5 @@ gazebo-commonMain = [
   "quote-kotlin",
   "serde-kotlin",
   "syn-kotlin",
+  "km-io",
 ]
