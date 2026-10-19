@@ -106,7 +106,7 @@ Gazebo is both MIT and Apache License, Version 2.0 licensed, as found in the
 
 ```kotlin
 dependencies {
-    implementation("io.github.kotlinmania:gazebo-kotlin:0.1.2")
+    implementation("io.github.kotlinmania:gazebo-kotlin:0.1.3")
 }
 ```
 
