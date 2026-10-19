@@ -14,7 +14,6 @@ package io.github.kotlinmania.gazebo.ext
 import io.github.kotlinmania.gazebo.dupe.Dupe
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
