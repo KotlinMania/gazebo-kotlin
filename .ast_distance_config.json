@@ -2,11 +2,11 @@
   "type": "port",
   "name": "gazebo-kotlin",
   "source": {
-    "path": "tmp/gazebo/cmp_any/src",
+    "path": "tmp/gazebo/gazebo/src",
     "lang": "rust"
   },
   "target": {
-    "path": "src/commonMain/kotlin/io/github/kotlinmania/gazebo/cmpany",
+    "path": "src/commonMain/kotlin/io/github/kotlinmania/gazebo",
     "lang": "kotlin"
   },
   "checks": {
@@ -18,10 +18,12 @@
   "reexport_modules": [
     "lib",
     "lib.rs",
-    "cmp_any.lib",
-    "cmp_any/lib",
-    "cmp_any::lib",
-    "gazebo/cmp_any/src/lib.rs",
-    "gazebo/cmp_any/lib.rs"
+    "prelude",
+    "prelude.rs",
+    "ext",
+    "ext.rs",
+    "gazebo/src/lib.rs",
+    "gazebo/src/prelude.rs",
+    "gazebo/src/ext.rs"
   ]
 }

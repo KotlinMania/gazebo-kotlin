@@ -4,14 +4,14 @@ Based on AST analysis, here are the concrete next steps.
 
 ## Summary
 
-- **Files Present:** 3/3 (100.0%)
-- **Function parity:** 13/13 matched (target 22) — 100.0%
-- **Class/type parity:** 4/4 matched (target 6) — 100.0%
-- **Combined symbol parity:** 17/17 matched (target 28) — 100.0%
-- **Average inline-code cosine:** 0.45 (function body across 3 matched files)
-- **Average documentation cosine:** 0.46 (doc text across 3 matched files)
+- **Files Present:** 2/15 (13.3%)
+- **Function parity:** 0/98 matched (target 4) — 0.0%
+- **Class/type parity:** 0/29 matched (target 2) — 0.0%
+- **Combined symbol parity:** 0/127 matched (target 6) — 0.0%
+- **Average inline-code cosine:** 0.00 (function body across 2 matched files)
+- **Average documentation cosine:** 0.09 (doc text across 2 matched files)
 - **Cheat-zeroed Files:** 0
-- **Critical Issues:** 1 files with <0.60 function similarity
+- **Critical Issues:** 2 files with <0.60 function similarity
 
 ## Priority 1: Fix Incomplete High-Dependency Files
 
@@ -27,29 +27,33 @@ No missing high-value files detected.
 
 Every matched file is listed below with function and type symbol parity.
 
-### 1. eq
+### 1. ext.iter
 
-- **Target:** `cmpany.PartialEqAny`
-- **Similarity:** 0.63
+- **Target:** `dupe.Iter [PROVENANCE-FALLBACK]`
+- **Similarity:** 0.00
 - **Dependents:** 0
-- **Priority Score:** 1003.7
-- **Functions:** 7/7 matched (target 13)
-- **Missing functions:** _none_
-- **Types:** 3/3 matched (target 4)
-- **Missing types:** _none_
-- **Tests:** 3/3 matched
+- **Priority Score:** 131310.0
+- **Functions:** 0/9 matched (target 3)
+- **Missing functions:** `try_any`, `check`, `try_all`, `try_eq_by`, `try_cmp_by`, `try_unzip`, `into_singleton`, `owned`, `next`
+- **Types:** 0/4 matched (target 1)
+- **Missing types:** `IterExt`, `IterOwned`, `Item`, `Owned`
+- **Provenance warning:** port-lint provenance header matched only by basename: `dupe/src/iter.rs` vs expected `ext/iter.rs`
+- **Proposed provenance header:** `// port-lint: source ext/iter.rs` (current: `// port-lint: source dupe/src/iter.rs`)
+- **Lint issues:** 1
 
-### 2. ord
+### 2. ext.option
 
-- **Target:** `cmpany.OrdAny`
-- **Similarity:** 0.71
+- **Target:** `dupe.Option [PROVENANCE-FALLBACK]`
+- **Similarity:** 0.00
 - **Dependents:** 0
-- **Priority Score:** 702.9
-- **Functions:** 6/6 matched (target 9)
-- **Missing functions:** _none_
-- **Types:** 1/1 matched (target 2)
-- **Missing types:** _none_
-- **Tests:** 1/1 matched
+- **Priority Score:** 30310.0
+- **Functions:** 0/1 matched
+- **Missing functions:** `try_map`
+- **Types:** 0/2 matched (target 1)
+- **Missing types:** `OptionExt`, `Item`
+- **Provenance warning:** port-lint provenance header matched only by basename: `dupe/src/option.rs` vs expected `ext/option.rs`
+- **Proposed provenance header:** `// port-lint: source ext/option.rs` (current: `// port-lint: source dupe/src/option.rs`)
+- **Lint issues:** 1
 
 ## Success Criteria
 
@@ -67,9 +71,9 @@ normal priority and missing-file ladders because they are wiring
 modules, not direct logic ports. Consult them for call-site routing;
 do not treat them as the next implementation target by default.
 
-### Matched
+### Missing
 
-| Source | Target | Path |
-|--------|--------|------|
-| `lib` | `cmpany.Lib` | `lib` |
+| Source | Expected target | Deps | Source path | Expected path |
+|--------|-----------------|------|-------------|---------------|
+| `lib` | `Lib` | 0 | `lib.rs` | `Lib.kt` |
 
